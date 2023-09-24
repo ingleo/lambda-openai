@@ -32,12 +32,17 @@ export const lambdaHandler = async (event, context) => {
 
     return {
       statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Headers': 'Content-Type, X-Api-Key',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST',
+      },
       body: JSON.stringify(completion),
     };
   } catch (err) {
     console.log(err);
     return {
-      status: statusCode,
+      status: 503,
       body: JSON.stringify(err.message),
     };
   }
