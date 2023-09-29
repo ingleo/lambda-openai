@@ -42,7 +42,7 @@ export const lambdaHandler = async (event, context) => {
   } catch (err) {
     console.log(err);
     return {
-      status: 503,
+      statusCode: 503,
       body: JSON.stringify(err.message),
     };
   }
